@@ -1,0 +1,34 @@
+{% extends 'shop/basic.html' %}
+{% block title%} BuyMyCart{% endblock %}
+{% block body %}
+<div class="container">
+    
+    <div class="col my-4">
+
+        <h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        
+        <div class="jumbotron text-center container-fluid">
+            <h1 class="display-3">Thank You!</h1>
+            <h1>YOUR ORDER ID #{{response.ORDERID}} </h1><br><h1> IS SUCCESSFULLY PLACED</h1>
+            <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
+            <hr>
+            <p>
+              Having trouble? <a href="/Shop/contact/">Contact us</a>
+            </p>
+            <p class="lead">
+              <a class="btn btn-primary btn-sm" href="/Shop/" role="button">Continue to homepage</a>
+            </p>
+          </div>
+        {% else %}
+        ORDER FAILURE
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
